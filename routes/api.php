@@ -6,4 +6,8 @@ Route::get('/test', function () {
     return response()->json(['status' => 'API working in Laravel 12']);
 });
 
-Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index']);
+// Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index']);
+
+Route::apiResource('/notes', App\Http\Controllers\NoteController::class);
+
+
