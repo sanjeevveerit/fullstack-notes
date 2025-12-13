@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use App\Http\Resources\NoteResource;
 
 class NoteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Note::all();
+        //return Note::all();
+        //return Note::paginate(10);
+        $query = Note::query();
+
+        if($request->has('search')){
+            $query->where('title','like',"%$request->search%");
+        }
+
+        return NoteResource::collection($query->paginate(10));
+
     }
 
     /**
@@ -35,8 +45,10 @@ class NoteController extends Controller
 
         $note = Note::create($validated);
 
-        return response()->json(['message'=>"note created successfully",
-        'data'=>$note],201);
+        return response()->json([
+            'message'=>"note created successfully",
+            'data'=> new NoteResource($note),
+        ],201);
     }
 
     /**
@@ -44,7 +56,8 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        return $note;
+        //return $note;
+        return new NoteResource($note);
     }
 
     /**
@@ -67,8 +80,10 @@ class NoteController extends Controller
 
         $note->update($validated);
 
-        return response()->json(['message' => "note updated successfully",
-        'data' => $note], 200);
+        return response()->json([
+            'message' => "note updated successfully",
+            'data' => new NoteResource($note)
+        ], 200);
     }
 
     /**
