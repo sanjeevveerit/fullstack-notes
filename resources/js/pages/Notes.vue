@@ -1,3 +1,4 @@
+<!--similar to blade file in laravel-->
 <template>
     <div>
         <h1>My Notes</h1>
@@ -13,19 +14,18 @@
 <script>
 import apiClient from '@/services/apiClient';
 
-export default {
+export default { //similar to return in laravel
     data() {
         return {
             notes: []
         }
     },
-    async mounted() {
+    async mounted() {  //you can use created() as well //similar to document.ready() in jQuery
 
-        // await apiClient.get('/notes').then(response => {
-        //     this.notes = response.data.data;
-        // });
-        const res = await apiClient.get('/notes')
-        this.notes = res.data.data
+        await apiClient.get('/notes').then(response => {
+            this.notes = response.data.data;
+        });
+
     }
 
  }

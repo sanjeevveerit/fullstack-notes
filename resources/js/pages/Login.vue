@@ -2,9 +2,12 @@
    <div>
         <h1>Login</h1>
 
+        <!-- v-model is similar to old input in laravel
+        it binds the input value to the data property -->
         <input v-model="email" placeholder="email" />
         <input v-model="password" type="password" placehpolder="Password"/>
 
+        <!--similar to form submit in laravel i.e onclick call login method-->
         <button @click="login">Login</button>
         <p v-if="error">{{ error }}</p>
    </div>
@@ -25,7 +28,7 @@ export default {
     },
     methods: {
 
-        async login() {
+        async login() { //async allows await
 
             const response =await apiClient.post('/login', {
                 email: this.email,
