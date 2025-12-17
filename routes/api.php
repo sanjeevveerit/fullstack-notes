@@ -8,7 +8,7 @@ Route::get('/test', function () {
 
 // Route::get('/notes', [App\Http\Controllers\NoteController::class, 'index']);
 
-Route::apiResource('/notes', App\Http\Controllers\NoteController::class);
+// Route::apiResource('/notes', App\Http\Controllers\NoteController::class);
 
 Route::post('/register', [App\Http\Controllers\AuthController::class,'register']);
 
