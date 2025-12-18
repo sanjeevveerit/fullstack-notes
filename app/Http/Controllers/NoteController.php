@@ -15,7 +15,7 @@ class NoteController extends Controller
     {
         //return Note::all();
         //return Note::paginate(10);
-        $query = Note::query();
+        $query = Note::orderBy('id','desc');
 
         if($request->has('search')){
             $query->where('title','like',"%$request->search%");
