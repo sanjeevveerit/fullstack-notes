@@ -6,6 +6,7 @@
         <input v-model="title" placeholder="title" />
         <input v-model="body" placeholder="body" />
         <button @click="addNote">  {{ editid ? 'Update note' : 'Add note' }}</button>
+        <p v-if="error">{{ error }}</p>
 
         <ul>
             <li v-for="note in notes" :key="note.id">
@@ -75,6 +76,7 @@ export default { //similar to return in laravel
 
             this.title = ''
             this.body = ''
+            this.error = ''
             await this.fetchnotes()
         },
 

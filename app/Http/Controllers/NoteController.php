@@ -41,6 +41,10 @@ class NoteController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string',
+        ],
+        [
+            'title.required' => 'The title field is mandatory.',
+            'body.required' => 'The body field is mandatory.',
         ]);
 
         $note = Note::create($validated);
