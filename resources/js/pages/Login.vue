@@ -30,20 +30,32 @@ export default {
 
         async login() { //async allows await
 
-            const response =await apiClient.post('/login', {
-                email: this.email,
-                password: this.password,
-            })
+            try {
 
-            if (response.data.success) {
-                localStorage.setItem('token', response.data.token);
-                this.$router.push('/notes');
-            } else {
-                this.error = response.data.message || 'Login failed';
+                const response = await apiClient.post('/login', {
+                    email: this.email,
+                    password: this.password,
+                })
+
+                if (response.data.token) {
+                    localStorage.setItem('token', response.data.token);
+                    this.$router.push('/notes');
+                } else {
+                    this.error = response.data.message || 'Login failed';
+                }
+
             }
+            catch (error) {
+
+                if (error.response && error.response.data.message) {
+                    this.error = error.response.data.message;
+                } else {
+                    this.error = 'Something went wrong. Try again.';
+                }
+            }
+
         }
 
     }
 }
-
 </script>
