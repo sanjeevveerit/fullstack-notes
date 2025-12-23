@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Login from '../pages/Login.vue'
-import Notes from '../pages/Notes.vue'
+import Login from '../src/js/pages/Login.vue'
+import Notes from '../src/js/pages/Notes.vue'
 
 const routes = [
   { path: '/', component: Login , meta: { guest: true } },
