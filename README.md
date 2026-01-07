@@ -26,25 +26,35 @@ A modern full-stack Notes application built using Laravel (Backend API) and Vue 
 Installation & Setup 
 
 1️⃣ Clone the Repository
+
 git clone https://github.com/sanjeevveerit/fullstack-notes.git
+
 cd fullstack-notes
 
 2️⃣ Backend Setup (Laravel)
+
 Install PHP dependencies
+
 composer install
 
 Create .env file
+
 cp .env.example .env
 
 Configure database in .env
+
 DB_DATABASE=your_db_name
+
 DB_USERNAME=your_db_user
+
 DB_PASSWORD=your_db_password
 
 Generate app key
+
 php artisan key:generate
 
 Run migrations
+
 php artisan migrate
 
 Install Sanctum using Composer & publish it then Migrate Again
