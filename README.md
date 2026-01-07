@@ -69,7 +69,7 @@ Visit in browser: http://127.0.0.1:8000
 
 Role-based access control
 
-Deployment (Render / Netlify)
+Deployment
 
 Better UI/UX
 
