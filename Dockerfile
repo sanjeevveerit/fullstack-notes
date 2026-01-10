@@ -21,7 +21,7 @@ RUN composer install --no-dev --optimize-autoloader
 EXPOSE 8080
 
 # Start Laravel
-CMD php artisan migrate --force && \
+CMD php artisan migrate --seed && \
     php artisan storage:link && \
     php artisan optimize:clear && \
     php artisan serve --host=0.0.0.0 --port=8080
