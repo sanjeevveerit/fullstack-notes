@@ -7,10 +7,11 @@ import axios from 'axios';
 const apiClient = axios.create({
     //baseURL: 'http://127.0.0.1:8000/api',
       baseURL: import.meta.env.VITE_API_BASE_URL,
-        withCredentials: true,
-        headers: {
-            Accept: 'application/json',
-        },
+        //withCredentials: true,
+        // headers: {
+        //     //Accept: 'application/json',
+        //     'X-Requested-With': 'XMLHttpRequest',
+        // },
 });
 
 // Add a request interceptor to include the token in headers

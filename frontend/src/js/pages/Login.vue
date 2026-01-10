@@ -15,7 +15,7 @@
 
 <script>
 
-import apiClient from '@/src/js/services/apiClient';
+import apiClient from '@/services/apiClient'
 
 export default {
 

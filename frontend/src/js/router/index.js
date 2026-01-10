@@ -1,6 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Login from '../src/js/pages/Login.vue'
-import Notes from '../src/js/pages/Notes.vue'
+// import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+
+import Login from '../pages/Login.vue'
+import Notes from '../pages/Notes.vue'
 
 const routes = [
   { path: '/', component: Login , meta: { guest: true } },
@@ -9,8 +11,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+    //  history: createWebHashHistory(),
+        history: createWebHistory(),
+        routes
 })
 
 router.beforeEach((to, from, next) => {
